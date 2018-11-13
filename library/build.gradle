@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'com.github.dcendents.android-maven'
+// alidili改成你的GitHub账户名
+group = 'com.github.zhengdj'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
