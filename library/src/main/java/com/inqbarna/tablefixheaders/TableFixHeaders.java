@@ -213,11 +213,11 @@ public class TableFixHeaders extends ViewGroup {
 
 				if (actualScrollX == maxScrollX && diffX > 0) {
 					adapter.onRight(event);
-					return false;
+//					return false;
 				}
 				if (actualScrollX == 0 && diffX < 0) {
 					adapter.onLeft(event);
-					return false;
+//					return false;
 				}
 
 				if (Math.abs(diffX) > Math.abs(1.3 * diffY)) {
