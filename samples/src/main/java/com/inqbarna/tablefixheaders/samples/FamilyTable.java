@@ -265,5 +265,10 @@ public class FamilyTable extends Activity {
 		public void onRight(MotionEvent event) {
 
 		}
+
+		@Override
+		public void onUp(MotionEvent event) {
+
+		}
 	}
 }

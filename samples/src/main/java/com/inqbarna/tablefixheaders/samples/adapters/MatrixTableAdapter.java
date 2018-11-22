@@ -90,4 +90,9 @@ public class MatrixTableAdapter<T> extends BaseTableAdapter {
 	public void onRight(MotionEvent event) {
 
 	}
+
+	@Override
+	public void onUp(MotionEvent event) {
+
+	}
 }

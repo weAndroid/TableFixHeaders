@@ -132,4 +132,5 @@ public interface TableAdapter{
 
 	void onLeft(MotionEvent event);
 	void onRight(MotionEvent event);
+	void onUp(MotionEvent event);
 }

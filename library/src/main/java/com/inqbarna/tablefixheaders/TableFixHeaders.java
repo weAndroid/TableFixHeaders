@@ -237,6 +237,7 @@ public class TableFixHeaders extends ViewGroup {
 				break;
 			}
 			case MotionEvent.ACTION_UP: {
+				adapter.onUp(event);
 				final VelocityTracker velocityTracker = this.velocityTracker;
 				velocityTracker.computeCurrentVelocity(1000, maximumVelocity);
 				int velocityX = (int) velocityTracker.getXVelocity();
