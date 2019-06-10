@@ -38,4 +38,5 @@ public abstract class BaseTableAdapter implements TableAdapter {
 	public void notifyDataSetInvalidated() {
 		mDataSetObservable.notifyInvalidated();
 	}
+
 }

@@ -4,6 +4,7 @@ import android.database.DataSetObserver;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 /**
  * The TableAdapter object acts as a bridge between an TableFixHeaders and the
@@ -14,7 +15,7 @@ import android.view.ViewGroup;
  * @author Brais Gabín (InQBarna)
  * @see TableFixHeaders
  */
-public interface TableAdapter{
+public interface TableAdapter {
 
 	/**
 	 * An item view type that causes the AdapterView to ignore the item view.
@@ -133,4 +134,7 @@ public interface TableAdapter{
 	void onLeft(MotionEvent event);
 	void onRight(MotionEvent event);
 	void onUp(MotionEvent event);
+	ImageView getLeftView();
+	ImageView getRightView();
+	int getTitleShadowDrwable();
 }
