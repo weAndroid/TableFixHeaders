@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class FamilyTable extends Activity {
@@ -269,6 +270,21 @@ public class FamilyTable extends Activity {
 		@Override
 		public void onUp(MotionEvent event) {
 
+		}
+
+		@Override
+		public ImageView getLeftView() {
+			return null;
+		}
+
+		@Override
+		public ImageView getRightView() {
+			return null;
+		}
+
+		@Override
+		public int getTitleShadowDrwable() {
+			return 0;
 		}
 	}
 }

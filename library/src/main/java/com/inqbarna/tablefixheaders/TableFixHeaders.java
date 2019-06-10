@@ -160,7 +160,11 @@ public class TableFixHeaders extends ViewGroup {
 
         leftImageView = adapter.getLeftView();
         rightImageView = adapter.getRightView();
-        leftImageView.setVisibility(GONE);
+
+        if (leftImageView != null) {
+            leftImageView.setVisibility(GONE);
+        }
+
 
         scrollX = 0;
         scrollY = 0;
@@ -223,12 +227,16 @@ public class TableFixHeaders extends ViewGroup {
                 int maxScrollX = getMaxScrollX();
 
                 if (actualScrollX == maxScrollX && diffX > 0) {
-                    rightImageView.setVisibility(GONE);
-                    leftImageView.setVisibility(VISIBLE);
+                    if (rightImageView != null && leftImageView != null) {
+                        rightImageView.setVisibility(GONE);
+                        leftImageView.setVisibility(VISIBLE);
+                    }
                     adapter.onRight(event);
                 } else if (actualScrollX == 0 && diffX < 0) {
-                    leftImageView.setVisibility(GONE);
-                    rightImageView.setVisibility(VISIBLE);
+                    if (rightImageView != null && leftImageView != null) {
+                        leftImageView.setVisibility(GONE);
+                        rightImageView.setVisibility(VISIBLE);
+                    }
                     adapter.onLeft(event);
                 }
 
@@ -271,16 +279,16 @@ public class TableFixHeaders extends ViewGroup {
                 }
 
                 if (getActualScrollX() == 0) {
-                    rightImageView.setVisibility(VISIBLE);
-                    leftImageView.setVisibility(GONE);
+                    if (rightImageView != null && leftImageView != null) {
+                        rightImageView.setVisibility(VISIBLE);
+                        leftImageView.setVisibility(GONE);
+                    }
                 } else if (getMaxScrollX() == getActualScrollX()) {
-                    leftImageView.setVisibility(VISIBLE);
-                    rightImageView.setVisibility(GONE);
-                } else {
-//                    leftImageView.setVisibility(VISIBLE);
-//                    rightImageView.setVisibility(VISIBLE);
+                    if (rightImageView != null && leftImageView != null) {
+                        leftImageView.setVisibility(VISIBLE);
+                        rightImageView.setVisibility(GONE);
+                    }
                 }
-
                 break;
             }
         }
@@ -698,7 +706,7 @@ public class TableFixHeaders extends ViewGroup {
 
                 int left, top, right, bottom;
                 float density = context.getResources().getDisplayMetrics().density;
-                int rightShadowSize =  (int)(46 * (double)density + 0.5D);
+                int rightShadowSize = (int) (46 * (double) density + 0.5D);
 
                 right = Math.min(width, sumArray(widths));
                 bottom = Math.min(height, sumArray(heights));
@@ -706,7 +714,7 @@ public class TableFixHeaders extends ViewGroup {
                 addShadow(shadows[1], 0, heights[0], right, heights[0] + shadowSize);
                 addShadow(shadows[2], right - rightShadowSize, heights[0], right, bottom);
 //                addShadow(shadows[3], 0, bottom - shadowSize, right, bottom);
-                if(adapter.getTitleShadowDrwable()!=0){
+                if (adapter.getTitleShadowDrwable() != 0) {
                     this.shadows[3] = new ImageView(context);
                     this.shadows[3].setImageResource(adapter.getTitleShadowDrwable());
                 }
@@ -748,25 +756,20 @@ public class TableFixHeaders extends ViewGroup {
                     top = bottom;
                 }
 
-                int rightArrowSize =  (int)(24 * (double)density + 0.5D);
-                int rightArrowSizeHalf =  rightArrowSize/2;
-                leftImageView.measure(MeasureSpec.makeMeasureSpec(rightArrowSize, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(rightArrowSize, MeasureSpec.EXACTLY));
-                rightImageView.measure(MeasureSpec.makeMeasureSpec(rightArrowSize, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(rightArrowSize, MeasureSpec.EXACTLY));
 
-                if (getWidth() < sumArray(widths)) {
-                    addView(leftImageView, this.getChildCount());
-                    addView(rightImageView, this.getChildCount());
-                    int tableHeight = sumArray(heights);
-                    if (sumArray(heights) > getHeight()) {
-                        tableHeight = getHeight();
-                    }
-                    if (heights.length > 0) {
-                        tableHeight += heights[0];
-//                        leftImageView.layout(widths[firstColumn], tableHeight / 2 - 25, widths[firstColumn] + 50, tableHeight / 2 + 25);
-//                        rightImageView.layout(getWidth() - 50, tableHeight / 2 - 25, getWidth(), tableHeight / 2 + 25);
+                if (leftImageView != null && rightImageView != null) {
+                    int rightArrowSize = (int) (24 * (double) density + 0.5D);
+                    int rightArrowSizeHalf = rightArrowSize / 2;
+                    leftImageView.measure(MeasureSpec.makeMeasureSpec(rightArrowSize, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(rightArrowSize, MeasureSpec.EXACTLY));
+                    rightImageView.measure(MeasureSpec.makeMeasureSpec(rightArrowSize, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(rightArrowSize, MeasureSpec.EXACTLY));
 
-                        leftImageView.layout(getWidth() - rightArrowSize, heights[0] / 2 - rightArrowSizeHalf, getWidth(), heights[0] / 2 + rightArrowSizeHalf);
-                        rightImageView.layout(getWidth() - rightArrowSize, heights[0] / 2 - rightArrowSizeHalf, getWidth(), heights[0] / 2 + rightArrowSizeHalf);
+                    if (getWidth() < sumArray(widths)) {
+                        addView(leftImageView, this.getChildCount());
+                        addView(rightImageView, this.getChildCount());
+                        if (heights.length > 0) {
+                            leftImageView.layout(getWidth() - rightArrowSize, heights[0] / 2 - rightArrowSizeHalf, getWidth(), heights[0] / 2 + rightArrowSizeHalf);
+                            rightImageView.layout(getWidth() - rightArrowSize, heights[0] / 2 - rightArrowSizeHalf, getWidth(), heights[0] / 2 + rightArrowSizeHalf);
+                        }
                     }
                 }
 

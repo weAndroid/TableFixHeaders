@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.MotionEvent;
+import android.widget.ImageView;
 
 import com.inqbarna.tablefixheaders.TableFixHeaders;
 import com.inqbarna.tablefixheaders.samples.adapters.SampleTableAdapter;
@@ -102,6 +103,21 @@ public class StyleTable extends Activity {
 		@Override
 		public void onUp(MotionEvent event) {
 
+		}
+
+		@Override
+		public ImageView getLeftView() {
+			return null;
+		}
+
+		@Override
+		public ImageView getRightView() {
+			return null;
+		}
+
+		@Override
+		public int getTitleShadowDrwable() {
+			return 0;
 		}
 	}
 }
