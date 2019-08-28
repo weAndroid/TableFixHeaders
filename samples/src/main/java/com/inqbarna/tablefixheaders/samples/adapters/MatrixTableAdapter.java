@@ -4,6 +4,7 @@ import com.inqbarna.tablefixheaders.adapters.BaseTableAdapter;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -108,7 +109,7 @@ public class MatrixTableAdapter<T> extends BaseTableAdapter {
 	}
 
 	@Override
-	public int getTitleShadowDrwable() {
-		return 0;
+	public Drawable getTitleShadowDrwable() {
+		return null;
 	}
 }

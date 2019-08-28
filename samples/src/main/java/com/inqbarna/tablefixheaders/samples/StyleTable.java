@@ -3,6 +3,9 @@ package com.inqbarna.tablefixheaders.samples;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.widget.ImageView;
@@ -116,8 +119,10 @@ public class StyleTable extends Activity {
 		}
 
 		@Override
-		public int getTitleShadowDrwable() {
-			return 0;
+		public Drawable getTitleShadowDrwable() {
+			GradientDrawable aDrawable = new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT,
+					new int[]{Color.parseColor("#ff1bbc9b"), Color.parseColor("#001bbc9b")});
+			return aDrawable;
 		}
 	}
 }

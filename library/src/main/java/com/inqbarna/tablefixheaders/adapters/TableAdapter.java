@@ -1,6 +1,7 @@
 package com.inqbarna.tablefixheaders.adapters;
 
 import android.database.DataSetObserver;
+import android.graphics.drawable.Drawable;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -136,5 +137,5 @@ public interface TableAdapter {
 	void onUp(MotionEvent event);
 	ImageView getLeftView();
 	ImageView getRightView();
-	int getTitleShadowDrwable();
+	Drawable getTitleShadowDrwable();
 }

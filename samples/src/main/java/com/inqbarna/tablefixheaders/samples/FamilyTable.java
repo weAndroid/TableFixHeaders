@@ -8,6 +8,7 @@ import com.inqbarna.tablefixheaders.adapters.BaseTableAdapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -283,8 +284,8 @@ public class FamilyTable extends Activity {
 		}
 
 		@Override
-		public int getTitleShadowDrwable() {
-			return 0;
+		public Drawable getTitleShadowDrwable() {
+			return null;
 		}
 	}
 }

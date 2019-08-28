@@ -714,9 +714,11 @@ public class TableFixHeaders extends ViewGroup {
                 addShadow(shadows[1], 0, heights[0], right, heights[0] + shadowSize);
                 addShadow(shadows[2], right - rightShadowSize, heights[0], right, bottom);
 //                addShadow(shadows[3], 0, bottom - shadowSize, right, bottom);
-                if (adapter.getTitleShadowDrwable() != 0) {
+                if (adapter.getTitleShadowDrwable() != null) {
                     this.shadows[3] = new ImageView(context);
-                    this.shadows[3].setImageResource(adapter.getTitleShadowDrwable());
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        this.shadows[3].setBackground(adapter.getTitleShadowDrwable());
+                    }
                 }
                 addShadow(shadows[3], right - rightShadowSize, 0, right, heights[0]);
 
